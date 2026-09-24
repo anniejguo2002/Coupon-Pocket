@@ -1,0 +1,8 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Coupon Pocket</title><link rel="stylesheet" href="popup.css"></head><body>
+<header><span class="logo">✳</span><div><h1>Coupon Pocket</h1><p>A little less at checkout.</p></div></header>
+<main><div class="store"><span class="eyebrow">YOUR CURRENT STORE</span><h2 id="site">Open a shopping website</h2><button id="enable">Enable on this site</button></div>
+<label class="switch"><span>Automatically try saved codes<small>Stops after the first confirmed success.</small></span><input type="checkbox" id="auto" checked></label>
+<div class="section"><h3>Your coupons <span id="count">0</span></h3><button class="link" id="scan">Scan page</button></div><ul id="coupons"></ul>
+<form id="add"><label for="code" class="eyebrow">HAVE A CODE?</label><div class="row"><input id="code" placeholder="Enter coupon code" maxlength="32" required autocomplete="off"><button>Add</button></div></form>
+<button id="try" class="primary">Try coupons at checkout →</button><p id="status" role="status" aria-live="polite"></p>
+<footer>Codes stay on this device. No account, tracking, or affiliate links. Only sites you enable are scanned.</footer></main><script src="popup.js"></script></body></html>

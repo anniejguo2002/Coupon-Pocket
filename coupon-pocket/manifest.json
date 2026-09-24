@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Coupon Pocket",
+  "version": "0.1.0",
+  "description": "Collect store-advertised coupon codes and try them at checkout on sites you enable.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "optional_host_permissions": [
+    "https://*/*",
+    "http://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Coupon Pocket"
+  }
+}

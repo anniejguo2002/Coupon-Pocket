@@ -1,0 +1,4 @@
+const {test}=require('node:test');const assert=require('node:assert/strict');require('../core.js');
+test('extracts explicit advertisements, deduplicates and excludes ordinary text',()=>{assert.deepEqual(CouponCore.extract('Use code SAVE20. Use code SAVE20! Promo code: HELLO-10. Your order is 12345. Discount code here. Coupon code ENTER'),['SAVE20','HELLO-10']);});
+test('rejects markup and malformed codes',()=>{for(const code of ['<script>','AB','1000','foo bar','A'.repeat(33)])assert.equal(CouponCore.validCode(code),false);assert.equal(CouponCore.validCode('welcome10'),true);});
+test('merges, refreshes timestamps and drops expired entries',()=>{const now=40*86400000;assert.deepEqual(CouponCore.merge([{code:'OLD20',seen:0},{code:'SAVE10',seen:now-1,source:'Store page'}],['SAVE10','NEW15'],'Added by you',now),[{code:'SAVE10',seen:now,source:'Store page'},{code:'NEW15',seen:now,source:'Added by you'}]);});
